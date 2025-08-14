@@ -1,7 +1,7 @@
 # 📺 LiveTV App
 
 LiveTV is an Android app built with **Kotlin** and **Jetpack Compose** that lets users browse and watch live TV channels via **YouTube API integration**.  
-This project demonstrates **MVVM + Clean Architecture** along with **Hilt, Retrofit, and Jetpack Compose**.
+It follows **MVVM + Clean Architecture** principles with **Hilt**, **Retrofit**, and **Coroutines** for a clean, scalable, and testable codebase.
 
 ---
 
@@ -9,7 +9,7 @@ This project demonstrates **MVVM + Clean Architecture** along with **Hilt, Retro
 - 🎬 Fetch and display YouTube video lists (Live TV channels)
 - 🔍 Search functionality for channels/videos
 - 📱 Modern UI with Jetpack Compose
-- ⚡ Optimized with coroutines & Flow
+- ⚡ Reactive data flow with Coroutines & Flow
 - 🗂️ MVVM + Clean Architecture for scalability
 
 ---
@@ -31,21 +31,19 @@ This app uses the **YouTube Data API v3** to fetch video/channel details.
 2. Create or select an existing project
 3. Enable **YouTube Data API v3**
 4. Go to **APIs & Services → Credentials** and create an **API Key**
-5. Add your API key in the app:
-   - Open `app/src/main/java/com/example/livetv/utils/Constants.kt` (or wherever you store constants)
-   - Replace:
-     ```kotlin
-     const val YOUTUBE_API_KEY = "YOUR_API_KEY_HERE"
-     ```
-6. Rebuild and run the app
+YOUTUBE_API_KEY=YOUR_API_KEY_HERE
 
----
+5. In `app/build.gradle`, make sure you have:
+```gradle
+defaultConfig {
+    ...
+    buildConfigField "String", "YOUTUBE_API_KEY", "\"${YOUTUBE_API_KEY}\""
+}
 
-## 🚀 How to Run
-```bash
-# Clone the repository
-git clone https://github.com/your-username/LiveTV.git
 
-# Open in Android Studio
-# Add your API key (see above)
-# Run on an emulator or device
+Access it anywhere in your app using:
+
+val apiKey = BuildConfig.YOUTUBE_API_KEY
+
+
+Rebuild and run the app.
