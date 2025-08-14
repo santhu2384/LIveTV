@@ -16,7 +16,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    //private const val BASE_URL = " https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCPXTXMecYqnRKNdqdVOGSFg&type=video&eventType=live&key=AIzaSyDs8wBHR3rrTsc5AfCFK38sDBvPd2GtqWQ" // Replace with your actual base URL
     private const val BASE_URL = "https://www.googleapis.com/"
 
     @Provides
